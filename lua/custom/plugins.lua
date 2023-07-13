@@ -33,5 +33,20 @@ local plugins = {
   {
     "mbbill/undotree", lazy = false,
   },
+  -- {
+  --   "nvim-neotest/neotest"
+  -- },
+  -- {
+  --   "nvim-neotest/neotest-python"
+  -- },
+  {
+    "akretion/vim-odoo-snippets"
+  },
+--  { seems telescope oldfiles <leader>fo does the same trick
+--    "smartpde/telescope-recent-files"
+--  },
+  {
+    "kdheepak/lazygit.nvim", lazy = false,
+  },
 }
 return plugins
