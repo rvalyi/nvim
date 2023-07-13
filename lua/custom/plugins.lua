@@ -45,8 +45,17 @@ local plugins = {
 --  { seems telescope oldfiles <leader>fo does the same trick
 --    "smartpde/telescope-recent-files"
 --  },
+  -- {
+  --  "magicmonty/sonicpi.nvim", lazy = false,
+  -- },
+  -- {
+  --  "folke/neodev.nvim",
+  -- },
   {
     "kdheepak/lazygit.nvim", lazy = false,
+  },
+  {
+    "SmiteshP/nvim-navbuddy",
   },
 }
 return plugins
