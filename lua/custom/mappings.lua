@@ -11,8 +11,8 @@ M.disabled = {
 -- Your custom mappings
 M.abc = {
   n = {
---     ["<leader>tt"] = {':!bash -c "docker-compose -f ~/DEV/odoo14/dev.docker-compose.yml --env-file ~/DEV/odoo14/.env run odoo pytest --odoo-database=db --disable-warnings /odoo/external-src/' .. vim.api.nvim_buf_get_name(0) .. '"', "run Pytest"},
-     ["<leader>tt"] = {
+    ["<leader>gg"] = { "<cmd> LazyGit<CR>", "LazyGit" },
+    ["<leader>tt"] = {
       function()
         local cmd = ':!bash -c "docker-compose -f ~/DEV/odoo14/dev.docker-compose.yml --env-file ~/DEV/odoo14/.env run odoo pytest --odoo-database=db --disable-warnings /odoo/' .. vim.fn.expand('%') .. '"'
         vim.cmd(cmd)
@@ -20,6 +20,25 @@ M.abc = {
       "run Pytest"
     },
 
+    -- ThePrimeagen hacks:
+    ["<leader>y"] = {"\"+y", "Yank Outside"},
+
+    ["<leader>a"] = {
+      function()
+        require("harpoon.mark").add_file()
+      end,
+      "Add File to Harpoon"
+    },
+    ["<A-e>"] = {
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+      "Toogle Harpoon Quick Menu"
+    },
+-- vim.keymap.set("n", "<A-q>", function() ui.nav_file(1) end)
+-- vim.keymap.set("n", "<A-w>", function() ui.nav_file(2) end)
+-- vim.keymap.set("n", "<A-a>", function() ui.nav_file(3) end)
+-- vim.keymap.set("n", "<A-s>", function() ui.nav_file(3) end)
   }
 
   -- i = {
