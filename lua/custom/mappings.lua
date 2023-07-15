@@ -11,13 +11,17 @@ M.disabled = {
 -- Your custom mappings
 M.abc = {
   n = {
+    ["<leader>m"] = { "<cmd> HopWord<CR>", "HopWord" },
+
+    ["<leader>nn"] = { "<cmd> Navbuddy<CR>", "Navbuddy" },
+ 
     ["<leader>gg"] = { "<cmd> LazyGit<CR>", "LazyGit" },
     ["<leader>tt"] = {
       function()
         local cmd = ':!bash -c "docker-compose -f ~/DEV/odoo14/dev.docker-compose.yml --env-file ~/DEV/odoo14/.env run odoo pytest --odoo-database=db --disable-warnings /odoo/' .. vim.fn.expand('%') .. '"'
         vim.cmd(cmd)
       end,
-      "run Pytest"
+      "run Odoo Pytest"
     },
 
     -- ThePrimeagen hacks:
@@ -27,13 +31,13 @@ M.abc = {
       function()
         require("harpoon.mark").add_file()
       end,
-      "Add File to Harpoon"
+      "Harpon - Add File"
     },
     ["<A-e>"] = {
       function()
         require("harpoon.ui").toggle_quick_menu()
       end,
-      "Toogle Harpoon Quick Menu"
+      "Harpoon Toggle Quick Menu"
     },
 -- vim.keymap.set("n", "<A-q>", function() ui.nav_file(1) end)
 -- vim.keymap.set("n", "<A-w>", function() ui.nav_file(2) end)
