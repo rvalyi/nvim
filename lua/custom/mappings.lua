@@ -18,7 +18,10 @@ M.abc = {
     ["<leader>gg"] = { "<cmd> LazyGit<CR>", "LazyGit" },
     ["<leader>tt"] = {
       function()
-        local cmd = ':!bash -c "docker-compose -f ~/DEV/odoo14/dev.docker-compose.yml --env-file ~/DEV/odoo14/.env run odoo pytest --odoo-database=db --disable-warnings /odoo/' .. vim.fn.expand('%') .. '"'
+        local file_path = vim.fn.expand('%:p')
+        local last_odoo_index = file_path:find("/odoo/")
+        local container_path = file_path:sub(last_odoo_index + 1)
+        local cmd = ':!bash -c "docker-compose -f ~/DEV/odoo14/dev.docker-compose.yml --env-file ~/DEV/odoo14/.env run odoo pytest --odoo-database=db --disable-warnings ' .. container_path .. '"'
         vim.cmd(cmd)
       end,
       "run Odoo Pytest"
