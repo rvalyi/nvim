@@ -34,6 +34,7 @@ https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally
 
 ```
 v (visual) + :s/old/new/g
+:Ggrep + cdo https://vimtricks.com/p/interactive-replace-across-files/
 ```
 
 ## flake8
