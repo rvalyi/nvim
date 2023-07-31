@@ -19,11 +19,24 @@ local plugins = {
     },
   },
   {
+    "williamboman/mason-lspconfig.nvim",
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
+    dependencies = {
+        {
+            "smiteshp/nvim-navbuddy",
+            dependencies = {
+                "smiteshp/nvim-navic",
+                "muniftanjim/nui.nvim"
+            },
+            opts = { lsp = { auto_attach = true } }
+        }
+    },
   },
   {
     "tpope/vim-fugitive", lazy = false,
@@ -58,19 +71,19 @@ local plugins = {
   -- {
   --   "SmiteshP/nvim-navbuddy", lazy = false,
   -- },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-        {
-            "SmiteshP/nvim-navbuddy",
-            dependencies = {
-                "SmiteshP/nvim-navic",
-                "MunifTanjim/nui.nvim"
-            },
-            opts = { lsp = { auto_attach = true } }
-        }
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   dependencies = {
+  --       {
+  --           "smiteshp/nvim-navbuddy",
+  --           dependencies = {
+  --               "smiteshp/nvim-navic",
+  --               "muniftanjim/nui.nvim"
+  --           },
+  --           opts = { lsp = { auto_attach = true } }
+  --       }
+  --   },
+  -- },
   {
     "phaazon/hop.nvim", lazy = false,
     opts = function()

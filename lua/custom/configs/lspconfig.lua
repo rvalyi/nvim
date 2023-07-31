@@ -1,3 +1,6 @@
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 local config = require("plugins.configs.lspconfig")
 
 local on_attach = config.on_attach
@@ -10,6 +13,37 @@ lspconfig.pyright.setup({
   capabilities = capabilities,
   filetypes = {"python"},
   python = {analysis = {autoSearchPaths = false,diagnosticMode = 'openFilesOnly',useLibraryCodeForTypes = true,typeCheckingMode = 'off'}}
+})
+
+
+lspconfig.svelte.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.html.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.cssls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.jsonls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.dockerls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.docker_compose_language_service.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 
