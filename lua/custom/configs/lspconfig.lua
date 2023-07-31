@@ -8,8 +8,16 @@ local lspconfig = require("lspconfig")
 lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {"python"}
+  filetypes = {"python"},
+  python = {analysis = {autoSearchPaths = false,diagnosticMode = 'openFilesOnly',useLibraryCodeForTypes = true,typeCheckingMode = 'off'}}
 })
+
+
+-- lspconfig.solargraph.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   filetypes = {"ruby"}
+-- })
 
 
 vim.diagnostic.config({
