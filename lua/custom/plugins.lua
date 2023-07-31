@@ -14,6 +14,7 @@ local plugins = {
         "black",
         "mypy",
         "ruff",
+        "vue-language-server",
       },
     },
   },
@@ -76,6 +77,10 @@ local plugins = {
       require'hop'.setup {}
     end
   },
+
+-- TODO look at 'christoomey/vim-tmux-navigator'
+-- TODO look a debugger via https://github.com/jay-babu/mason-nvim-dap.nvim
+
   --{
    -- "simrat39/symbols-outline.nvim",
    -- opts = function ()
