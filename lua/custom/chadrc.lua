@@ -17,4 +17,11 @@
       vim.cmd("runtime " .. plugin)
     end
 
+
+-- Odoo guidelines:
+ vim.api.nvim_create_autocmd("FileType", {
+  	pattern = "xml",
+  	command = "setlocal shiftwidth=4 tabstop=4"
+ })
+
  return M
