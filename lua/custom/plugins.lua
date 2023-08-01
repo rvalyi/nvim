@@ -56,6 +56,21 @@ local plugins = {
   {
     "akretion/vim-odoo-snippets"
   },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+     opts = {
+       -- Enable Netrw to make the 'gx' shortcut work
+       disable_netrw = false,
+       hijack_netrw = false,
+    }
+  },
+  {
+    "prichrd/netrw.nvim", lazy = false
+    -- opts = function()
+    --   require'netrw'.setup {}
+    -- end
+  },
 --  { seems telescope oldfiles <leader>fo does the same trick
 --    "smartpde/telescope-recent-files"
 --  },

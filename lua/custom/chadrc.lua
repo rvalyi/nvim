@@ -3,25 +3,33 @@
  M.ui = {theme = 'nightowl'}
  M.plugins = "custom.plugins"
  M.mappings = require "custom.mappings"
--- vim.g.python3_host_prog = '/usr/bin/python'
--- vim.g.loaded_python3_provider = 1
 
-    local enable_providers = {
-      "python3_provider",
-      "node_provider",
-      -- and so on
-    }
-    
-    for _, plugin in pairs(enable_providers) do
-      vim.g["loaded_" .. plugin] = nil
-      vim.cmd("runtime " .. plugin)
-    end
+  local enable_providers = {
+    "python3_provider",
+    "node_provider",
+    -- and so on
+  }
 
+  for _, plugin in pairs(enable_providers) do
+    vim.g["loaded_" .. plugin] = nil
+    vim.cmd("runtime " .. plugin)
+  end
 
--- Odoo guidelines:
- vim.api.nvim_create_autocmd("FileType", {
-  	pattern = "xml",
-  	command = "setlocal shiftwidth=4 tabstop=4"
- })
+  -- Odoo XML guidelines:
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "xml",
+    command = "setlocal shiftwidth=4 tabstop=4"
+  })
+
+  -- Enable netrw again, see https://github.com/NvChad/NvChad/issues/1949
+  M.lazy_nvim = {
+    performance = {
+      rtp = {
+        disabled_plugins = vim.tbl_filter(function(name)
+          return string.sub(name, 1, 5) ~= "netrw"
+        end, require("plugins.configs.lazy_nvim").performance.rtp.disabled_plugins),
+      },
+    },
+  }
 
  return M
